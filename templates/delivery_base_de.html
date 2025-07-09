@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <style>
+    @page { size:A4 portrait; margin:15mm }
+    body { font-family:Arial,sans-serif; margin:0; font-size:10pt }
+    header { display:flex; align-items:center; margin-bottom:10px }
+    .logo { height:40px; margin-right:10px }
+    .company { font-size:12pt; font-weight:bold }
+    .addresses { display:flex; justify-content:space-between; margin:10px 0 }
+    .box { width:48%; border:1px solid #666; padding:8px; box-sizing:border-box }
+    .note-meta { margin:10px 0; font-size:10pt }
+    table { width:100%; border-collapse:collapse; margin-top:10px }
+    th, td { border:1px solid #666; padding:4px; word-wrap:break-word }
+    th { background:#eee }
+    .summary { display:flex; justify-content:space-between; margin-top:10px }
+    .summary .left, .summary .right { width:48% }
+    .sign { margin-top:40px }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="{{ logo_uri }}" class="logo"/>
+    <div class="company">Dr. Köcher Kft.<br/>2300 Ráckeve, Vásártér Str. 15, Ungarn</div>
+  </header>
+
+  <section class="addresses">
+    <div class="box">
+      <strong>Käufer:</strong><br/>
+      {{ buyer_name }}<br/>
+      {{ buyer_address|replace('\n','<br/>') }}<br/>
+      <strong>Land:</strong> {{ buyer_country }}
+    </div>
+    <div class="box">
+      <strong>Lieferadresse:</strong><br/>
+      {{ ship_name }}<br/>
+      {{ ship_address|replace('\n','<br/>') }}<br/>
+      <strong>Land:</strong> {{ ship_country }}
+    </div>
+  </section>
+
+  <div class="note-meta">
+    <strong>Lieferscheinnr.:</strong> {{ note_number }}<br/>
+    <strong>Lieferdatum:</strong> {{ delivery_date }}
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Auftrags-nr.</th>
+        <th>Bezeichnung -nr.</th>
+        <th>Artikel-nr.</th>
+        <th>Liefermenge</th>
+        <th>Einheit</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for e in entries %}
+      <tr>
+        <td>{{ e.order_number }}</td>
+        <td>{{ e.product_name }}</td>
+        <td>{{ e.item_number }}</td>
+        <td>{{ e.ship_qty }}</td>
+        <td>{{ e.unit }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <section class="summary">
+    <div class="left">
+      <strong>Netto-Gewicht:</strong> {{ net_weight }} kg<br/>
+      <strong>Brutto-Gewicht:</strong> {{ gross_weight }} kg<br/>
+      <strong>Europaletten:</strong> {{ euro_count }}<br/>
+      <strong>Einwegpaletten:</strong> {{ one_count }}
+    </div>
+    <div class="right">
+      <strong>Tausch Europaletten:</strong><br/>
+      <strong>Tausch Einwegpaletten:</strong>
+    </div>
+  </section>
+
+  <div class="sign">
+    <strong>Unterschrift und Stempel:</strong> ____________________________
+  </div>
+</body>
+</html>

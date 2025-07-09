@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    /* --- A3 fektetett, nagyobb felső margóval --- */
+    @page {
+      size: A3 landscape;
+      margin: 2cm 1cm 1cm 1cm; /* felül 2 cm, oldalt 1 cm, alul 1 cm */
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      box-sizing: border-box;
+      font-size: 0.8em;
+      margin: 0; /* a @page margók érvényesülnek */
+    }
+
+    /* --- Két színes sáv a tetején --- */
+    header::before {
+      content: "";
+      display: block;
+      height: 6mm;
+      background-color: #003366;
+      margin-bottom: 1mm;
+    }
+    header::after {
+      content: "";
+      display: block;
+      height: 3mm;
+      background-color: #0055aa;
+      margin-bottom: 6mm; /* ezzel toljuk le a tényleges fejlécet */
+    }
+
+    /* --- Fejléc minden oldalon --- */
+    header {
+      position: running(header);
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+    @page {
+      @top-center {
+        content: element(header)
+      }
+    }
+
+    header img {
+      height: 40px;
+      margin-right: 1cm;
+    }
+    .company-name {
+      font-weight: bold;
+      margin-right: auto;
+    }
+    header h1 {
+      font-size: 1em;
+      margin: 0;
+    }
+
+    /* --- Táblázat stílus --- */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      page-break-after: auto;
+      margin-top: 0.5cm;
+    }
+    th, td {
+      border: 1px solid #888;
+      padding: 0.2em;
+      text-align: left;
+      word-wrap: break-word;
+    }
+    th { background-color: #eee; }
+    tr { page-break-inside: avoid; }
+  </style>
+</head>
+<body>
+  <!-- ez a blokk fut végig minden oldalon -->
+  <header>
+    <img src="{{ logo_path }}" alt="Céglogó">
+    <div class="company-name">{{ company_name }}</div>
+    <h1>{{ report_title }}</h1>
+  </header>
+
+  <main>
+    {{ content_table | safe }}
+  </main>
+</body>
+</html>
+
+

@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "vevo": "NILFISK",
+    "beerkezes": "2025-06-21",
+    "megrendeles_szam": "4105422",
+    "szall_hatarido": "2025-06-26",
+    "megjegyzes": "",
+    "tetelek": [
+      {
+        "pid": 21,
+        "qty": 300.0,
+        "fennmarado_mennyiseg": 300.0,
+        "mennyisegi_egyseg": ""
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "vevo": "NILFISK",
+    "beerkezes": "2025-06-21",
+    "megrendeles_szam": "2332122544",
+    "szall_hatarido": "2025-06-23",
+    "megjegyzes": "",
+    "tetelek": [
+      {
+        "pid": 1,
+        "qty": 300.0,
+        "fennmarado_mennyiseg": 300.0,
+        "mennyisegi_egyseg": ""
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "vevo": "NILFISK",
+    "beerkezes": "2025-06-21",
+    "megrendeles_szam": "5448742665",
+    "szall_hatarido": "2025-06-25",
+    "megjegyzes": "",
+    "tetelek": [
+      {
+        "pid": 1,
+        "qty": 15.0
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "vevo": "NILFISK",
+    "beerkezes": "2025-06-21",
+    "megrendeles_szam": "5448742665",
+    "szall_hatarido": "2025-06-25",
+    "megjegyzes": "",
+    "tetelek": [
+      {
+        "pid": 4,
+        "qty": 200.0
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "vevo": "NILFISK",
+    "beerkezes": "2025-06-21",
+    "megrendeles_szam": "5448742665",
+    "szall_hatarido": "2025-06-25",
+    "megjegyzes": "",
+    "tetelek": [
+      {
+        "pid": 3,
+        "qty": 350.0,
+        "fennmarado_mennyiseg": 350.0,
+        "mennyisegi_egyseg": ""
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "vevo": "NILFISK",
+    "beerkezes": "2025-06-21",
+    "megrendeles_szam": "5448742665",
+    "szall_hatarido": "2025-06-25",
+    "megjegyzes": "",
+    "tetelek": [
+      {
+        "pid": 11,
+        "qty": 100.0,
+        "fennmarado_mennyiseg": 100.0,
+        "mennyisegi_egyseg": ""
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "vevo": "NILFISK",
+    "beerkezes": "2025-06-21",
+    "megrendeles_szam": "5448742665",
+    "szall_hatarido": "2025-06-25",
+    "megjegyzes": "",
+    "tetelek": [
+      {
+        "pid": 10,
+        "qty": 100.0
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "vevo": "NILFISK",
+    "beerkezes": "2025-06-21",
+    "megrendeles_szam": "5448742665",
+    "szall_hatarido": "2025-06-25",
+    "megjegyzes": "",
+    "tetelek": [
+      {
+        "pid": 9,
+        "qty": 100.0
+      }
+    ]
+  }
+]

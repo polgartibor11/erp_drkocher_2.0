@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <style>
+    @page { size:A4 portrait; margin:15mm }
+    body { font-family:Arial,sans-serif; margin:0; font-size:10pt }
+    header { display:flex; align-items:center; margin-bottom:10px }
+    .logo { height:40px; margin-right:10px }
+    .company { font-size:12pt; font-weight:bold }
+    .addresses { display:flex; justify-content:space-between; margin:10px 0 }
+    .box { width:48%; border:1px solid #666; padding:8px; box-sizing:border-box }
+    .note-meta { margin:10px 0; font-size:10pt }
+    table { width:100%; border-collapse:collapse; margin-top:10px }
+    th, td { border:1px solid #666; padding:4px; word-wrap:break-word }
+    th { background:#eee }
+    .summary { display:flex; justify-content:space-between; margin-top:10px }
+    .summary .left, .summary .right { width:48% }
+    .sign { margin-top:40px }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="{{ logo_uri }}" class="logo"/>
+    <div class="company">Dr. Köcher Kft.<br/>2300 Ráckeve, Vásártér utca 15, Magyarország</div>
+  </header>
+
+  <section class="addresses">
+    <div class="box">
+      <strong>Vevő:</strong><br/>
+      {{ buyer_name }}<br/>
+      {{ buyer_address|replace('\n','<br/>') }}<br/>
+      <strong>Ország:</strong> {{ buyer_country }}
+    </div>
+    <div class="box">
+      <strong>Szállítási cím:</strong><br/>
+      {{ ship_name }}<br/>
+      {{ ship_address|replace('\n','<br/>') }}<br/>
+      <strong>Ország:</strong> {{ ship_country }}
+    </div>
+  </section>
+
+  <div class="note-meta">
+    <strong>Szállítólevél száma:</strong> {{ note_number }}<br/>
+    <strong>Szállítás dátuma:</strong> {{ delivery_date }}
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Megrendelési szám</th>
+        <th>Termék neve</th>
+        <th>Cikkszám</th>
+        <th>Szállított menny.</th>
+        <th>Egység</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for e in entries %}
+      <tr>
+        <td>{{ e.order_number }}</td>
+        <td>{{ e.product_name }}</td>
+        <td>{{ e.item_number }}</td>
+        <td>{{ e.ship_qty }}</td>
+        <td>{{ e.unit }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <section class="summary">
+    <div class="left">
+      <strong>Nettó súly:</strong> {{ net_weight }} kg<br/>
+      <strong>Bruttó súly:</strong> {{ gross_weight }} kg<br/>
+      <strong>Euro raklapok:</strong> {{ euro_count }}<br/>
+      <strong>Egyutas raklapok:</strong> {{ one_count }}
+    </div>
+    <div class="right">
+      <strong>Csere Euro raklapok:</strong><br/> 
+      <strong>Csere Egyutas raklapok:</strong> 
+    </div>
+  </section>
+
+  <div class="sign">
+    <strong>Aláírás és bélyegző:</strong> ____________________________
+  </div>
+</body>
+</html>
+
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Etiketten</title>
+<style>
+  @page { size:A4 portrait; margin:18mm 15mm; }
+  body   { font-family:"Segoe UI",Arial,sans-serif; font-size:11pt; margin:0; }
+  .label{ border:1px solid #444; padding:8px 14px; min-height:115mm; box-sizing:border-box; }
+  .logo { max-height:55px; max-width:160px; object-fit:contain; }
+  .header{ display:flex; gap:12px; align-items:center; margin-bottom:6px; }
+  .company-name{ font-weight:700; font-size:14pt; color:#20386a; }
+  .company-addr{ font-size:9.5pt; }
+  .title{ font-weight:700; font-size:13pt; margin:6px 0 4px 0; color:#20386a; }
+  p{ margin:2px 0; }
+  .dash{ border-top:1px dashed #777; margin:8mm 0; }
+</style>
+</head>
+<body>
+
+<!-- ─────────────────── Obere Etikette ─────────────────── -->
+<div class="label">
+  <div class="header">
+    <img src="{{ logo_uri }}" class="logo">
+    <div>
+      <div class="company-name">Dr. Köcher Kft.</div>
+      <div class="company-addr">2300 Ráckeve, Vásártér u. 15, Ungarn</div>
+    </div>
+  </div>
+
+  <p class="title">Produktbezeichnung: {{ labels[0].termek }}</p>
+  <p>Artikel-Nr.: {{ labels[0].cikkszam }}</p>
+  <p>Auftrags-Nr.: {{ labels[0].order_number }}</p>
+  <p>Auftrag Datum: {{ labels[0].beerkezes }}</p>
+  <p>Oberfläche: {{ labels[0].felulet }}</p>
+  <p>Menge: {{ labels[0].darab }} {{ labels[0].egyseg }}</p>
+  <p>Fertigstellungsdatum: {{ labels[0].created }}</p>
+
+  <p><b>Abladestelle:</b></p>
+  <p>{{ labels[0].cimzett }}</p>
+  <p>{{ labels[0].cim }}</p>
+  <p>{{ labels[0].cim_country }}</p>
+</div>
+
+<div class="dash"></div>
+
+<!-- ─────────────────── Untere Etikette ─────────────────── -->
+<div class="label">
+  <div class="header">
+    <img src="{{ logo_uri }}" class="logo">
+    <div>
+      <div class="company-name">Dr. Köcher Kft.</div>
+      <div class="company-addr">2300 Ráckeve, Vásártér u. 15, Ungarn</div>
+    </div>
+  </div>
+
+  <p class="title">Produktbezeichnung: {{ labels[0].termek }}</p>
+  <p>Artikel-Nr.: {{ labels[0].cikkszam }}</p>
+  <p>Auftrags-Nr.: {{ labels[0].order_number }}</p>
+  <p>Auftrag Datum: {{ labels[0].beerkezes }}</p>
+  <p>Oberfläche: {{ labels[0].felulet }}</p>
+  <p>Menge: {{ labels[0].darab }} {{ labels[0].egyseg }}</p>
+  <p>Fertigstellungsdatum: {{ labels[0].created }}</p>
+
+  <p><b>Abladestelle:</b></p>
+  <p>{{ labels[0].cimzett }}</p>
+  <p>{{ labels[0].cim }}</p>
+  <p>{{ labels[0].cim_country }}</p>
+</div>
+
+</body>
+</html>
